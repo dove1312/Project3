@@ -47,14 +47,16 @@ function App() {
 
     const newStore = []
     newStore.push(...product)
-    console.log(newStore)
+    // console.log(newStore)
     setStore(newStore)
 
   }, [])
 
-  const handleClick = (price, name, img) => {
+
+
+  const addToCart = (price, name, img) => {
     const inventory = [...cart]
-    console.log(inventory)
+    // console.log(inventory)
 
     const itemToPush = {price: price, name: name, img: img, quantity: 1 }
 
@@ -63,8 +65,8 @@ function App() {
         item.name === name
       )
     })
-    console.log(newInventory)
-    console.log(inventory)
+    // console.log(newInventory)
+    // console.log(inventory)
 
     if (newInventory.length > 0) {
       // newInventory[0].quantity += 1;
@@ -79,15 +81,9 @@ function App() {
       inventory.push(itemToPush)
     }
     setCart(inventory)
-
-
-    // if (Object.keys) {
-
-    //   inventory.push({ name: name, quantity: currentQuantity + 1 })
-    // }
-
-    console.log(inventory)
   }
+
+
 
   const handleRemove = (name, index) => {
     
@@ -112,22 +108,16 @@ function App() {
       newCart.splice(index, 1)
     }
 
-
     setCart(newCart)
   }
 
-  // const handleClick = (name, img) => {
-  //   const inventory = [...cart]
-  //   const itemToPush = {name: name, img: img}
-  //   inventory.push(itemToPush)
-  //   console.log(inventory)
-  //   setCart(inventory)
-  // }
+
 
   return (
     <div className="App">
-      <ItemList handleClick={handleClick} store={store} />
-      <Cart handleRemove={handleRemove} cart={cart} store={store} />
+      <h1>Rip Off Store</h1>
+      <ItemList addToCart={addToCart} store={store} />
+      <Cart addToCart={addToCart} handleRemove={handleRemove} cart={cart} store={store} />
     </div>
   );
 }

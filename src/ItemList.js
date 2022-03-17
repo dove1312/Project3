@@ -12,7 +12,7 @@ function ItemList(props) {
         <div className="itemContainer">
             {props.store.map((item)=>{
                 return(
-                    <ItemVisual handleClick={props.handleClick} id={item.id} name={item.name} img={item.img} price={item.price} />
+                    <ItemVisual addToCart={props.addToCart} id={item.id} name={item.name} img={item.img} price={item.price} />
                 )
             })}
         </div>

@@ -9,7 +9,7 @@ function ItemVisual (props){
             <h3>{props.name}</h3>
             <img src={props.img} alt="" />
             <p>${props.price}</p>
-            <button onClick={()=>props.handleClick(props.price, props.name, props.img)}>add to cart</button>
+            <button onClick={()=>props.addToCart(props.price, props.name, props.img)}>add to cart</button>
         </div>
     )
 }
